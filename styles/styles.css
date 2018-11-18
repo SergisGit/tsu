@@ -1064,6 +1064,8 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   margin: 0 auto;
   padding: 0 22px;
   background-color: #fff;
+  -webkit-box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
+          box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.15);
 }
 .map__descr {
   -ms-flex-negative: 0;
@@ -1428,6 +1430,8 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
             align-items: center;
     padding: 0 15px;
     background-color: transparent;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     text-align: center;
   }
   .map__descr {
