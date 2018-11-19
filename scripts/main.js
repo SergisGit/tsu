@@ -30,7 +30,8 @@
       minZoom: mapZoom,
       maxZoom: mapZoom,
       scrollZoom: false,
-      dragRotate: false
+      dragRotate: false,
+      touchZoomRotate: false
     });
 
     map.on('load', function() {
