@@ -30,6 +30,7 @@
       minZoom: mapZoom,
       maxZoom: mapZoom,
       scrollZoom: false,
+      pitchWithRotate: false,
       dragRotate: false,
       touchZoomRotate: false
     });
