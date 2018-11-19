@@ -29,11 +29,13 @@
       zoom: mapZoom,
       minZoom: mapZoom,
       maxZoom: mapZoom,
-      scrollZoom: false
+      scrollZoom: false,
+      dragRotate: false
     });
 
     map.on('load', function() {
       map.on('dragstart', function (event) {
+        console.log(map.tap);
         if (event.originalEvent && 'touches' in event.originalEvent) {
           if (event.originalEvent.touches.length < 2) {
             map.dragPan.disable();
