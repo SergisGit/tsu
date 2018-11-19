@@ -31,6 +31,20 @@
       maxZoom: mapZoom,
       scrollZoom: false
     });
+
+    map.on('load', function() {
+      map.on('dragstart', function (event) {
+        if (event.originalEvent && 'touches' in event.originalEvent) {
+          if (event.originalEvent.touches.length < 2) {
+            map.dragPan.disable();
+          } else {
+            map.dragPan.enable();
+          }
+        }
+      });
+    });
+
+    
   }
   
 })();
