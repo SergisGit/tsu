@@ -1,0 +1,42 @@
+{
+	"type": "FeatureCollection",
+	"features": [
+	  {
+		"type": "Feature",
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [
+			30.70980224414063,
+			36.90337104478007
+		  ]
+		},
+		"properties": {
+		  "name": "Леонид Каратыгин",
+		  "place": "Турция, г. Анталья",
+		  "year": "93",
+		  "link": "/karatygin",
+		  "icon": "assets/images/graduates/gr1.jpg",
+		  "image": "assets/images/graduates/gr1-medium.jpg"
+		}
+	  },
+	  {
+		"type": "Feature",
+		"geometry": {
+		  "type": "Point",
+		  "coordinates": [
+			37.57086478710936,
+			55.72457160496167
+		  ]
+		},
+		"properties": {
+		  "name": "Матрёна Никифоровна",
+		  "place": "Россия, г. Москва",
+		  "year": "98",
+		  "link": "/nikiforovna",
+		  "icon": "assets/images/graduates/gr2.jpg",
+		  "image": "assets/images/graduates/gr2-medium.jpg"
+		}
+	  }
+	]
+}
+

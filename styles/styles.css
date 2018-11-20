@@ -1019,11 +1019,19 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   display: inline-block;
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 0px 10px;
+  height: 30px;
+  padding: 1px 10px 1px;
   outline: none;
-  border: none;
+  border: 3px solid #0047FF;
+  color: #0047FF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 14px;
+  line-height: 21px;
+  letter-spacing: 0.08em;
+  font-weight: 700;
   text-align: center;
   text-decoration: none;
+  text-transform: uppercase;
   -webkit-transition: all 0.2s;
   -o-transition: all 0.2s;
   transition: all 0.2s;
@@ -1033,15 +1041,105 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   overflow: hidden;
   cursor: pointer;
 }
+.btn:hover,
+.btn:active,
+.btn--active {
+  background-color: #0047FF;
+  color: #fff;
+}
+.infowindow {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  max-width: 380px;
+  padding: 15px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.infowindow__image-wrapper {
+  -ms-flex-negative: 0;
+      flex-shrink: 0;
+  position: relative;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
+  width: 140px;
+  height: 140px;
+  margin: 5px 22px 0 0;
+}
+.infowindow__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: saturate(0);
+          filter: saturate(0);
+}
+.infowindow__year {
+  position: absolute;
+  left: -10px;
+  bottom: 0;
+  color: #0047FF;
+  font-family: 'PT Serif', serif;
+  font-size: 36px;
+  font-weight: 700;
+}
+.infowindow__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+}
+.infowindow__name {
+  color: #0047FF;
+  font-family: 'PT Serif', serif;
+  font-size: 20px;
+  line-height: 29px;
+  font-weight: 700;
+}
+.infowindow__place {
+  margin: 10px 0 15px;
+  font-size: 14px;
+  line-height: 21px;
+}
+.infowindow__btn {
+  display: block;
+  margin-top: auto;
+}
 .map {
   position: relative;
   margin: 0 auto;
   width: 100%;
+  z-index: 0;
 }
 .map__wrapper {
+  position: relative;
   width: 100%;
   height: 90vh;
   height: calc(100vh - 110px);
+}
+.map__wrapper::before,
+.map__wrapper::after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15px;
+  z-index: 1;
+}
+.map__wrapper::before {
+  left: 0;
+}
+.map__wrapper::after {
+  right: 0;
 }
 .map__info {
   -webkit-box-sizing: border-box;
@@ -1116,6 +1214,34 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   padding: 22px 0;
   font-size: 14px;
   line-height: 21px;
+}
+.map__marker {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -webkit-transition: -webkit-filter 0.2s;
+  transition: -webkit-filter 0.2s;
+  -o-transition: filter 0.2s;
+  transition: filter 0.2s;
+  transition: filter 0.2s, -webkit-filter 0.2s;
+  cursor: pointer;
+  z-index: 2;
+}
+.map__marker:hover,
+.map__marker:active,
+.map__marker--active {
+  -webkit-filter: saturate(0);
+          filter: saturate(0);
+}
+.map__marker-icon {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.map__popup {
+  z-index: 2;
 }
 .page-header {
   -webkit-box-sizing: border-box;
@@ -1570,6 +1696,31 @@ a.mapboxgl-ctrl-logo.mapboxgl-compact {
   }
 }
 @media (max-width: 599px) {
+  .infowindow {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    width: 260px;
+    padding: 20px;
+    text-align: center;
+  }
+  .infowindow__image-wrapper {
+    -ms-flex-item-align: center;
+        align-self: center;
+    margin: 0 0 20px;
+  }
+  .infowindow__content {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .infowindow__place {
+    margin: 8px 0 20px;
+  }
   .map__details {
     padding: 55px 15px 40px;
   }
