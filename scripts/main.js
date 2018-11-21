@@ -102,6 +102,14 @@
               '</div>'
             );
             grPopup.setLngLat({"lng": marker.geometry.coordinates[0], "lat": marker.geometry.coordinates[1]}).addTo(map);
+
+            var el = grPopup._container;
+            el.style.width='';
+            el.style.height='';
+            var width = Math.round(el.offsetWidth);
+            if (width % 2 != 0) el.style.width=width+1+'px';
+            var height = Math.round(el.offsetHeight);
+            if (height % 2 != 0) el.style.height=height+1+'px';
           });
         });
 
@@ -118,13 +126,31 @@
         */
       });
 
-
-
     });
 
-    
-
-    
   }
+
+  //Share-links
+  var shareLink = $('.sharer');
+  $.each(shareLink, function () {
+    var thisLink = $(this);
+    if (!thisLink.attr('data-url')) {
+      thisLink.attr('data-url', window.location.href);
+    }
+    if (!thisLink.attr('data-title')) {
+      thisLink.attr('data-title', $(document).find("title").text());
+    }
+  });
+
+  //up btn
+  var $root = $('html, body');
+
+  var upBtn = $('#js-upBtn');
+  upBtn.on('click', function() {
+    $root.animate({
+      scrollTop: 0
+    }, 500);
+    return false;
+  });
   
 })();
