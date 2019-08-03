@@ -9,7 +9,7 @@
   }
 
   var mapZoom = window.matchMedia("(min-width: 768px)").matches ? 2 : 1;
-  var mamCenter = window.matchMedia("(min-width: 768px)").matches ? [22.04622630078105,39.94769520495493] : [49.256614484375056,44.755914715920284];
+  var mamCenter = window.matchMedia("(min-width: 1440px)").matches ? [0.0,39.94769520495493] : window.matchMedia("(min-width: 1170px)").matches ? [-10.0,39.94769520495493] : window.matchMedia("(min-width: 768px)").matches ? [-17.0,39.94769520495493] : [40.0,44.755914715920284];
 
   var flyToPoint = function(currentFeature, map) {
     map.flyTo({
@@ -50,6 +50,7 @@
           closeButton: true,
           closeOnClick: true,
           className: 'map__popup',
+          anchor: 'bottom',
           offset: 25
         });
 
@@ -63,7 +64,7 @@
 
         var iconTemplate = 'data:image/svg+xml;utf8,<svg version=\'1.0\' viewBox=\'0 0 24 24\' xml:space=\'preserve\' xmlns=\'http://www.w3.org/2000/svg\' xmlns:xlink=\'http://www.w3.org/1999/xlink\'><g fill=\'%230047FF\'><polygon points=\'12,3 1,9 12,15 23,9 \'/><polygon points=\'19,12.8 12,17 5,12.8 5,17.2 12,21 19,17.2 \'/><rect height=\'8\' width=\'2\' x=\'21\' y=\'9\'/></g></svg>';
 
-        graduates.features.forEach(function(marker, i) {
+        graduates.features.forEach(function(marker, i, markers) {
 
           var icon = marker.properties.icon ? marker.properties.icon : iconTemplate;
 
@@ -71,6 +72,7 @@
           el.id = "marker-" + i;
           el.className = 'map__marker';
           el.innerHTML = '<img src="'+icon+'" alt="graduate" class="map__marker-icon">';
+          if (!marker.properties.link) el.classList.add('map__marker--gray');
   
           new mapboxgl.Marker(el, {offset: [0, 0]})
               .setLngLat(marker.geometry.coordinates)
@@ -90,11 +92,12 @@
             var year = marker.properties.year ? '<div class="infowindow__year">’'+marker.properties.year+'</div>' : '';
             var place = marker.properties.place ? '<div class="infowindow__place">'+marker.properties.place+'</div>' : '';
             var link = marker.properties.link ? '<a href="'+marker.properties.link+'" class="infowindow__btn  btn">ЧИТАТЬ ИСТОРИЮ</a>' : '';
+            var gray = marker.properties.link ? '' : ' infowindow__image--gray';
 
             grPopup.setHTML(
               '<div class="infowindow">'+
                 '<div class="infowindow__image-wrapper">'+
-                  '<img class="infowindow__image" src="'+imageSrc+'" alt="'+name+'">'+year+
+                  '<img class="infowindow__image'+gray+'" src="'+imageSrc+'" alt="'+name+'">'+year+
                 '</div>'+
                 '<div class="infowindow__content">'+
                   '<div class="infowindow__name">'+name+'</div>'+place+link+
@@ -111,19 +114,12 @@
             var height = Math.round(el.offsetHeight);
             if (height % 2 != 0) el.style.height=height+1+'px';
           });
-        });
 
-        /*
-        map.on('dragstart', function (event) {
-          console.log(map.tap);
-          if (event.originalEvent && 'touches' in event.originalEvent) {
-            if (event.originalEvent.touches.length < 2) {
-              map.dragPan.disable();
-              map.dragPan.enable();
-            }
+          if (i === markers.length -1 ) {
+            jsMap.classList.add('map__wrapper--loaded');
           }
         });
-        */
+
       });
 
     });
@@ -151,6 +147,13 @@
       scrollTop: 0
     }, 500);
     return false;
+  });
+
+  var vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty("--vh","".concat(vh,"px"));
+  window.addEventListener('resize', function() {
+    var vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty("--vh","".concat(vh,"px"));
   });
   
 })();

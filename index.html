@@ -49,7 +49,9 @@
 
   <header class="page-header">
     <div class="page-header__heading">
-      <img src="assets/icons/logo.png" alt="logo" class="page-header__logo">
+      <a href="http://alumni.tsu.ru/" target="_blank" class="page-header__logo">
+        <img src="assets/icons/logo.png" alt="logo" class="page-header__logo-icon">
+      </a>
       <div class="page-header__descr">Истории успеха выпускников </div>
     </div>
     <div class="page-header__title">Зачетный выпуск</div>
@@ -57,7 +59,22 @@
 
   <main class="main">
     <div class="map">
-      <div class="map__wrapper" id="js-map" data-graduates="json/graduates.json"></div>
+      <div class="map__wrapper" id="js-map" data-graduates="json/graduates.json">
+        <div class="map__loader">
+          <svg class="map__loader-icon" width="100" height="100" version="1.1" xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 399.389 399.389">
+            <path fill="#0047FF" d="M340.896,58.489C303.18,20.773,253.031,0.001,199.693,0.001c-53.34,0-103.487,20.771-141.204,58.488
+                C20.772,96.207,0,146.355,0,199.694c0,53.34,20.772,103.489,58.49,141.206c37.717,37.717,87.864,58.488,141.204,58.488
+                c53.339,0,103.486-20.771,141.205-58.488c37.717-37.717,58.49-87.865,58.49-141.206C399.387,146.355,378.613,96.207,340.896,58.489
+                z M328.061,71.326c34.289,34.289,53.172,79.878,53.172,128.368h-41.148c0-77.412-62.979-140.391-140.391-140.391
+                c-4.593,0-9.134,0.229-13.615,0.662v-41.31c4.508-0.332,9.049-0.5,13.615-0.5C248.184,18.155,293.771,37.038,328.061,71.326z
+                 M199.693,321.931c-67.401,0-122.236-54.835-122.236-122.236S132.292,77.458,199.693,77.458S321.93,132.293,321.93,199.694
+                S267.094,321.931,199.693,321.931z" />
+
+          </svg>
+          Загрузка карты...
+        </div>
+      </div>
       <div class="map__info">
         <div class="map__plank">
           <p class="map__descr">
@@ -133,11 +150,15 @@
   <footer class="page-footer">
     <div class="page-footer__wrapper">
       <div class="page-footer__info">
-        <img src="assets/icons/logo.png" alt="logo" class="page-footer__logo">
+        <a href="http://alumni.tsu.ru/" target="_blank" class="page-footer__logo">
+          <img src="assets/icons/logo.png" alt="logo" class="page-footer__logo-icon">
+        </a>
         <div class="page-footer__contacts">
           <div class="page-footer__data">634050, г. Томск, пр. Ленина, 36</div>
-          <div class="page-footer__data">Приемная комиссия тел.: <a href="tel:8 3822 529-672" class="page-footer__tel">(3822) 529-672</a></div>
-          <div class="page-footer__data">Пресс-служба тел.: <a href="tel:8 3822 529-604" class="page-footer__tel">(3822) 529-604</a></div>
+          <div class="page-footer__data">Приемная комиссия тел.: <a href="tel:8 3822 529-672" class="page-footer__tel">(3822)
+              529-672</a></div>
+          <div class="page-footer__data">Пресс-служба тел.: <a href="tel:8 3822 529-604" class="page-footer__tel">(3822)
+              529-604</a></div>
         </div>
       </div>
   
@@ -151,7 +172,7 @@
       </div>
       <div class="page-footer__vault">
         <div class="page-footer__copyright">Все права защищены © 2018</div>
-        <div class="page-footer__copyright">Сайт разработан диджитал-агентством Creatix.pro</div>
+        <div class="page-footer__copyright">Сайт разработан диджитал-агентством <a href="http://creatix.pro/">Creatix.pro</a></div>
       </div>
     </div>
   </footer>
